@@ -13,6 +13,10 @@ namespace BuilderPattern
 
         public string LogisticsSection;
 
+        /// <summary>
+        /// Debug method which help us in return report result with console 
+        /// </summary>
+        /// <returns>string builder instance include report result</returns>
         public string Debug()
         {
             return new StringBuilder()
