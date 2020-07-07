@@ -21,12 +21,13 @@ namespace BuilderPattern
                 new FurnitureItem("Dining Table", 105.0, 35.4, 100.6, 55.5),
             };
 
-            // create report Builder and it's Director class [Here how to apply Builder design pattern using Director class]
+            // create report Builder then build report
+            // [Here how to apply Builder design pattern using Fluent builder like built-in StringBuilder class]
             DailyReportBuilder inventoryReportBuilder = new DailyReportBuilder(items);
-            InventoryBuildDirector director = new InventoryBuildDirector(inventoryReportBuilder);
+            inventoryReportBuilder.AddTitle()
+                .AddDimensions()
+                .AddLogistics(DateTime.Now);
 
-            // call build report using director then getting it
-            director.BuildCompleteReport();
             InventoryReport inventoryReport = inventoryReportBuilder.GetDailyReport();
 
             Console.WriteLine(inventoryReport.Debug());

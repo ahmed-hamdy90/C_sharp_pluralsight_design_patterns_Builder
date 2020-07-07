@@ -23,13 +23,15 @@ namespace BuilderPattern
         }
 
         /// <inheritdoc cref="IFurnitureInventoryBuilder.AddTitle"/>
-        public void AddTitle()
+        public IFurnitureInventoryBuilder AddTitle()
         {
             _report.TitleSection = "------ Daily Inventory Report ------\n\n";
+            
+            return this;
         }
 
         /// <inheritdoc cref="IFurnitureInventoryBuilder.AddDimensions"/>
-        public void AddDimensions()
+        public IFurnitureInventoryBuilder AddDimensions()
         {
             IEnumerable<string> itemsInfo = _items.Select(product =>
             {
@@ -37,12 +39,16 @@ namespace BuilderPattern
                        $"Height: {product.Height} * Width: {product.Weight} -> Weight: {product.Weight} lbs\n";
             });
             _report.DimensionsSection = string.Join(Environment.NewLine, itemsInfo);
+
+            return this;
         }
 
         /// <inheritdoc cref="IFurnitureInventoryBuilder.AddLogistics"/>
-        public void AddLogistics(DateTime dateTime)
+        public IFurnitureInventoryBuilder AddLogistics(DateTime dateTime)
         {
             _report.LogisticsSection = $"Report Generated on {dateTime}";
+
+            return this;
         }
 
         /// <inheritdoc cref="IFurnitureInventoryBuilder.GetDailyReport"/>

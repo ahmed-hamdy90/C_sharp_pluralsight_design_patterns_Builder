@@ -10,18 +10,21 @@ namespace BuilderPattern
         /// <summary>
         /// Adding title section details of report
         /// </summary>
-        void AddTitle();
+        /// <returns>return current instance of builder</returns>
+        IFurnitureInventoryBuilder AddTitle();
 
         /// <summary>
         /// Adding dimensions section details of report
         /// </summary>
-        void AddDimensions();
+        /// <returns>return current instance of builder</returns>
+        IFurnitureInventoryBuilder AddDimensions();
 
         /// <summary>
         /// Adding logistics section details of report
         /// </summary>
         /// <param name="dateTime">datetime instance need into setting logistics info</param>
-        void AddLogistics(DateTime dateTime);
+        /// <returns>return current instance of builder</returns>
+        IFurnitureInventoryBuilder AddLogistics(DateTime dateTime);
 
         /// <summary>
         /// Getting report instance
